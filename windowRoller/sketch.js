@@ -1,21 +1,22 @@
-let pos = createVector(0, 0);
-let cr = 0;
-let cb = 0;
-let cg = 0;
+let mouseVec;
+let midVec;
+let anglea;
+let vsum;
 
 function setup() {
   createCanvas(400, 400);
+  mouseVec = createVector(0,0);
+  midVec = createVector(width/2, height/2);
+  anglea = 0;
+  vsum = 0;
 }
 
 function draw() {
   background(220);
+  mouseVec.set(mouseX, mouseY);
+  vsum = midVec.add(mouseVec);
+  anglea = midVec.anglebetween(vsum);
+  line(midVec.x, midVec.y, mouseVec.x, mouseVec.y);
+  text(anglea.toString() ,300,300);
 
-  pos.x = mouseX;
-  pos.y = mouseY;
-  cr = map(mouseX,0,400,0,255);
-  cg = calculatecg();
-  cb = map(mouseY,0,400,0,255);
-  c = color(cr,cg,cb);
-  fill(c);
-  ellipse(mouseX,mouseY,20,20);
 }
