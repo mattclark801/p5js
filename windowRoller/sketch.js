@@ -1,22 +1,27 @@
-let mouseVec;
-let midVec;
-let anglea;
-let vsum;
+/*
+This p5.js sketch will let a user pick
+a color in rgb space while only moving a mouse
+cursor in xy space.
+game ideas: give the player a target color to match
+and a timer, a scoring system and an end condition
+etc.. in other words: make it a game
+*/
+
+// declare variables
+let cr; // red color component
+let cg; // green color component
+let cb; // blue color component
+let vecMid; // rotational axis
+let vecMouse; // mouse position
+
 
 function setup() {
   createCanvas(400, 400);
-  mouseVec = createVector(0,0);
-  midVec = createVector(width/2, height/2);
-  anglea = 0;
-  vsum = 0;
 }
 
 function draw() {
   background(220);
-  mouseVec.set(mouseX, mouseY);
-  vsum = midVec.add(mouseVec);
-  anglea = midVec.anglebetween(vsum);
-  line(midVec.x, midVec.y, mouseVec.x, mouseVec.y);
-  text(anglea.toString() ,300,300);
+  ellipse(width/2, height/2, 10, 10);
+
 
 }
